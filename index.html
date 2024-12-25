@@ -9,27 +9,30 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f0f8ff;
         }
         header {
-            background: #333;
+            background: linear-gradient(90deg, #0073e6, #00509e);
             color: #fff;
-            padding: 1rem;
+            padding: 1.5rem;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .navbar {
             display: flex;
             justify-content: center;
-            background: #555;
+            background: #00509e;
             padding: 10px;
         }
         .navbar a {
             color: white;
             text-decoration: none;
             margin: 0 15px;
+            font-weight: bold;
         }
         .navbar a:hover {
             text-decoration: underline;
+            color: #ffd700;
         }
         .container {
             max-width: 1200px;
@@ -41,33 +44,40 @@
             padding: 10px;
             background: #f9f9f9;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .category h2 {
             margin: 0;
             padding: 10px;
-            background: #007bff;
+            background: #0073e6;
             color: white;
-            border-radius: 5px 5px 0 0;
+            border-radius: 10px 10px 0 0;
         }
         .item {
             background: #fff;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 10px;
             padding: 15px;
             margin: 10px;
             text-align: center;
             display: inline-block;
             width: calc(33% - 20px);
             box-sizing: border-box;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .item:hover {
+            transform: scale(1.05);
         }
         .item img {
             max-width: 100%;
             height: auto;
-            border-radius: 5px;
+            border-radius: 10px;
         }
         .item h3 {
             margin: 10px 0;
+            color: #333;
         }
         .item p {
             margin: 5px 0;
@@ -76,29 +86,30 @@
         .item a {
             display: inline-block;
             margin-top: 10px;
-            background: #007bff;
+            background: #0073e6;
             color: white;
             text-decoration: none;
             padding: 10px 20px;
             border-radius: 5px;
             font-size: 16px;
+            transition: background 0.3s;
         }
         .item a:hover {
-            background: #0056b3;
+            background: #00509e;
         }
         .cart {
             position: fixed;
             top: 20px;
             right: 20px;
-            background: #ffcc00;
+            background: #ffd700;
             padding: 10px;
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             cursor: pointer;
+            font-weight: bold;
         }
         .cart p {
             margin: 0;
-            font-weight: bold;
         }
         .cart-details {
             display: none;
@@ -108,13 +119,14 @@
             transform: translate(-50%, -50%);
             background: white;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 10px;
             padding: 20px;
             width: 300px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
         .cart-details h3 {
             margin-top: 0;
+            color: #0073e6;
         }
         .cart-details button {
             background: #dc3545;
@@ -130,10 +142,11 @@
         }
         footer {
             text-align: center;
-            padding: 10px;
-            background: #333;
+            padding: 20px;
+            background: linear-gradient(90deg, #00509e, #003060);
             color: #fff;
             margin-top: 20px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
         }
     </style>
     <script>
