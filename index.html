@@ -63,10 +63,39 @@
             padding: 10px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
         }
         .cart p {
             margin: 0;
             font-weight: bold;
+        }
+        .cart-details {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .cart-details h3 {
+            margin-top: 0;
+        }
+        .cart-details button {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .cart-details button:hover {
+            background: #c82333;
         }
         footer {
             text-align: center;
@@ -86,14 +115,24 @@
         }
 
         function updateCart() {
-            const cartElement = document.getElementById('cart-items');
-            cartElement.innerHTML = '';
+            document.getElementById('cart-count').textContent = cart.length;
+        }
+
+        function showCart() {
+            const cartDetails = document.getElementById('cart-details');
+            const cartContent = document.getElementById('cart-content');
+            cartContent.innerHTML = '';
             cart.forEach(item => {
                 const itemElement = document.createElement('div');
                 itemElement.textContent = `${item.name} - ${item.price} DKK`;
-                cartElement.appendChild(itemElement);
+                cartContent.appendChild(itemElement);
             });
-            document.getElementById('total').textContent = `Итого: ${cart.reduce((sum, item) => sum + item.price, 0)} DKK`;
+            document.getElementById('cart-total').textContent = `Итого: ${cart.reduce((sum, item) => sum + item.price, 0)} DKK`;
+            cartDetails.style.display = 'block';
+        }
+
+        function closeCart() {
+            document.getElementById('cart-details').style.display = 'none';
         }
     </script>
 </head>
@@ -102,10 +141,14 @@
         <h1>Welcome to My Online Store</h1>
         <p>Discover unique items and great deals!</p>
     </header>
-    <div class="cart">
-        <p>Корзина:</p>
-        <div id="cart-items"></div>
-        <p id="total">Итого: 0 DKK</p>
+    <div class="cart" onclick="showCart()">
+        <p>Корзина (<span id="cart-count">0</span>)</p>
+    </div>
+    <div class="cart-details" id="cart-details">
+        <h3>Ваша корзина</h3>
+        <div id="cart-content"></div>
+        <p id="cart-total">Итого: 0 DKK</p>
+        <button onclick="closeCart()">Закрыть</button>
     </div>
     <div class="container">
         <!-- Example items -->
